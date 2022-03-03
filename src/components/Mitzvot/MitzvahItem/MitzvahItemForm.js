@@ -2,8 +2,12 @@ import classes from "./MitzvahItemForm.module.css";
 import Input from "../../UI/Input";
 
 const MitzvahItemForm = (props) => {
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className={classes.form}>
+    <form onSubmit={onSubmitHandler} className={classes.form}>
       <Input
         label="Amount"
         input={{

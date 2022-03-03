@@ -1,7 +1,8 @@
 import Header from "./components/UI/Layout/Header";
 import Mitzvot from "./components/Mitzvot/Mitzvot";
 import Cart from "../src/components/Cart/Cart";
-import { Fragment, useState } from "react";
+import { useState } from "react";
+import CartProvider from "./store/CartProvider";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -14,13 +15,13 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <CartProvider>
       {cartIsShown && <Cart onCloseCart={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
         <Mitzvot />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 
